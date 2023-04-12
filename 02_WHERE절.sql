@@ -42,7 +42,7 @@ WHERE job_id IN ('IT_PROG', 'AD_VP');
 -- %는 어떠한 문자든, _는 데이터의 자리(위치)를 찾아낼 때
 SELECT first_name, hire_date
 FROM employees
-WHERE hire_date LIKE '03%';
+WHERE hire_date LIKE '03%'; -- 03으로 시작하는 
 
 
 -- __ 언더바는 
@@ -53,7 +53,7 @@ WHERE hire_date LIKE '%15';
 
 SELECT first_name, hire_date
 FROM employees
-WHERE hire_date LIKE '%05%';
+WHERE hire_date LIKE '%05%'; -- ??05?? 
 
 SELECT first_name, hire_date
 FROM employees
