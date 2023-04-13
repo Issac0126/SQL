@@ -45,6 +45,7 @@ SELECT
     first_name, 
     hire_date,
     Floor((sysdate - hire_date) / 7) AS WEEK,
+    Floor((sysdate - hire_date) / 365) AS YEAR,
     TRUNC((sysdate - hire_date) / 365, 0) AS YEAR
 FROM employees;
 
