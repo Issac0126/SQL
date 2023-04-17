@@ -11,7 +11,7 @@ on i.auth_id = a.auth_id;
 SELECT 
     *
 FROM info i, auth a
-WHERE i.auth_id = a.auth_id; --이 조건을 만족하는 문법만 온다. 
+WHERE i.auth_id = a.auth_id; --이 조건을 만족하는 문법만 온다.
 
 
 -- auth_id 컬럼을 그냥 쓰면 모호하다 라고 뜬다.
