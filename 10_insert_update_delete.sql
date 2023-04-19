@@ -54,16 +54,55 @@ CTAS를 사용하면 제약 조건은 NOT NULL 말고는 복사되지 않는다.
 그렇지 않은 것들이 DB에 저장되는 것을 방지하는 목적으로 사용한다.
 */
 
+-- UPDATE를 진행할 때는 누구를 수정할지 잘 지목해야 한다.
+-- 그렇지 않으면 수정 대상이 테이블 전체로 지목된다.
+UPDATE emps 
+SET salary = 30000
+WHERE employee_id = 100;
+
+UPDATE emps SET salary = salary+salary*0.1
+WHERE employee_id = 100;
+
+SELECT * FROM emps;
+
+UPDATE emps
+SET phone_number = '010.4742.8917', manager_id = 102
+WHERE employee_id = 100;
 
 
+ROLLBACK;
+
+-- UPDATE (서브쿼리)
+UPDATE emps --100번인 사람의 인적을 조회해 그대로 101번에게 적용하겠다
+    SET (job_id, salary, manager_id) =
+        (SELECT job_id, salary, manager_id
+        FROM emps
+        WHERE employee_id = 100
+        )
+WHERE employee_id = 101; 
 
 
+-- DELETE
+DELETE FROM emps
+WHERE employee_id = 103;
 
 
+--사본 테이블 생성
+CREATE TABLE depts AS (SELECT * FROM departments);
+SELECT * FROM depts;
 
+-- DELETE 서브쿼리
+DELETE FROM depts
+WHERE department_id = (SELECT department_id
+                        FROM depts
+                        WHERE department_id = 100
+                        );
 
-
-
+DELETE FROM emps
+WHERE department_id = (SELECT department_id
+                        FROM depts
+                        WHERE department_name = 'IT'
+                        );
 
 
 
