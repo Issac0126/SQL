@@ -4,7 +4,7 @@
 SELECT * FROM emps;
 
 --오토커밋 여부 확인
-SHOW AUTOCOMMIT ;
+SHOW AUTOCOMMIT;
 --오토커밋 온
 SET AUTOCOMMIT ON;
 --오토커밋 오프
@@ -31,7 +31,7 @@ INSERT INTO emps
 VALUES
     (305, 'park', 'lack1234@gmail.com', sysdate, 1800);
 
-ROLLBACK to SAVEPOTBT insert_pack;
+ROLLBACK to SAVEPOINT insert_pack;
 
 
 -- 보류중인 모든 데이터 변경사항을 영구적으로 적용하면서 트랜잭션 종료
