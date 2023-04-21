@@ -69,23 +69,13 @@ AND DATAFILES;
 
 
 
+CREATE VIEW emp_view AS(
+    SELECT 
+        employee_id, first_name, job_id, department_id
+    FROM employees
+)WITH READ ONLY;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+SELECT * FROM EMP_VIEW;
 
 
 
